@@ -10,6 +10,7 @@ function App() {
       >
         Click me
       </button>
+      <a href="/login">Login</a>
     </div>
   );
 }
