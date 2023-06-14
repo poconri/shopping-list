@@ -3,6 +3,7 @@ import {
   Controller,
   Get,
   Param,
+  ParseIntPipe,
   Post,
   UsePipes,
   ValidationPipe,
@@ -10,17 +11,17 @@ import {
 import { UsersService } from './users.service';
 import { CreateUserDto } from './users.dtos';
 
-@Controller('users')
+@Controller('user')
 export class UsersController {
   constructor(private readonly userService: UsersService) {}
 
-  @Get()
+  @Get('all')
   getUsers() {
     return this.userService.getUsers();
   }
 
   @Get('id/:id')
-  findUsersById(@Param('id, ParseIntPipe') id: number) {
+  findUsersById(@Param('id', ParseIntPipe) id: number) {
     return this.userService.findUsersById(id);
   }
 

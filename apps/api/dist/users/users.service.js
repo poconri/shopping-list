@@ -21,9 +21,13 @@ let UsersService = exports.UsersService = class UsersService {
     constructor(userRepository) {
         this.userRepository = userRepository;
     }
-    createUser(createUserDto) {
+    async createUser(createUserDto) {
         const newUser = this.userRepository.create(createUserDto);
-        return this.userRepository.save(newUser);
+        const newSavedUser = await this.userRepository.save(newUser);
+        return {
+            message: 'User created successfully',
+            data: newSavedUser,
+        };
     }
     getUsers() {
         return this.userRepository.find();

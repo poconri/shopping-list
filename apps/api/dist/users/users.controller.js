@@ -31,14 +31,14 @@ let UsersController = exports.UsersController = class UsersController {
     }
 };
 __decorate([
-    (0, common_1.Get)(),
+    (0, common_1.Get)('all'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], UsersController.prototype, "getUsers", null);
 __decorate([
     (0, common_1.Get)('id/:id'),
-    __param(0, (0, common_1.Param)('id, ParseIntPipe')),
+    __param(0, (0, common_1.Param)('id', common_1.ParseIntPipe)),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", void 0)
@@ -52,7 +52,7 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], UsersController.prototype, "createUsers", null);
 exports.UsersController = UsersController = __decorate([
-    (0, common_1.Controller)('users'),
+    (0, common_1.Controller)('user'),
     __metadata("design:paramtypes", [users_service_1.UsersService])
 ], UsersController);
 //# sourceMappingURL=users.controller.js.map

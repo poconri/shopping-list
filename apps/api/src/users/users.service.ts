@@ -10,9 +10,13 @@ export class UsersService {
     @InjectRepository(User) private readonly userRepository: Repository<User>,
   ) {}
 
-  createUser(createUserDto: CreateUserDto) {
+  async createUser(createUserDto: CreateUserDto) {
     const newUser = this.userRepository.create(createUserDto);
-    return this.userRepository.save(newUser);
+    const newSavedUser = await this.userRepository.save(newUser);
+    return {
+      message: 'User created successfully',
+      data: newSavedUser,
+    }
   }
 
   getUsers() {
