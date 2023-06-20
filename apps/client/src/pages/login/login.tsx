@@ -1,4 +1,5 @@
 import { useState } from "react";
+import * as bcrypt from 'bcrypt';
 
 const isAStringArray = (data:unknown): data is string[] => {
   return Array.isArray(data) && data.every((item) => typeof item === "string");
